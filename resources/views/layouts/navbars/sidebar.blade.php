@@ -21,13 +21,13 @@
 
 
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="{{ ($activePage == 'profile' || $activePage == 'user-management') ? 'true' : '' }}">
           <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
           <p>{{ __('User Management') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse {{ ($activePage == 'profile' || $activePage == 'user-management') ? 'show' : '' }}" id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -42,6 +42,8 @@
 
 
       <li class="nav-item {{ ($activePage == 'setup' || $activePage == 'group' || $activePage == 'year' || $activePage == 'shift' || $activePage == 'category' || $activePage == 'categoryAmount' || $activePage == 'exam' || $activePage == 'subject' ||  $activePage == 'designation' || $activePage == 'assignSubject'  ) ? ' active' : '' }}">
+        
+        
         <a class="nav-link" data-toggle="collapse" href="#setupManagement" aria-expanded="{{ ($activePage == 'setup' || $activePage == 'year' || $activePage == 'group' || $activePage == 'shift' || $activePage == 'category' || $activePage == 'categoryAmount' || $activePage == 'exam' || $activePage == 'subject' ||  $activePage == 'designation' || $activePage == 'assignSubject' ) ? 'true' : 'false' }}">
           <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
           <p>{{ __('Setup Management') }}
@@ -119,6 +121,56 @@
               <a class="nav-link" href="{{ route('designation.index') }}">
                 <span class="sidebar-mini"> UP </span>
                 <span class="sidebar-normal">{{ __('Designation') }} </span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+
+      </li>
+
+
+
+
+      <li class="nav-item {{ ($activePage == 'studentRegistration'  || $activePage == 'assignStudent' || $activePage == 'waiver' || $activePage == 'scholarship'  ) ? ' active' : '' }}">
+        
+        
+        <a class="nav-link" data-toggle="collapse" href="#manageStudent" aria-expanded="{{ ($activePage == 'studentRegistration'  || $activePage == 'assignStudent' || $activePage == 'waiver' || $activePage == 'scholarship'  ) ? 'true' : 'false' }}">
+          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
+          <p>{{ __('Manage Student') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse {{ ($activePage == 'studentRegistration' || $activePage == 'assignStudent' || $activePage == 'waiver' || $activePage == 'scholarship'  ) ? 'show' : '' }}" id="manageStudent">
+          <ul class="nav">
+
+            <li class="nav-item{{ $activePage == 'studentRegistration' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('student.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Student Registration') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'assignStudent' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('assignStudent.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Assign Student') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'scholarship' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('scholarship.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Student Scholarship') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'waiver' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('waiver.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Student Waiver') }} </span>
               </a>
             </li>
 

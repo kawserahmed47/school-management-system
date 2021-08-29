@@ -1,20 +1,23 @@
 <?php
 
+use App\Http\Controllers\AssignStudentController;
 use App\Http\Controllers\AssignSubjectController;
 use App\Http\Controllers\StudentClassController;
 use App\Http\Controllers\StudentYearController;
 use App\Http\Controllers\StudentGroupController;
 use App\Http\Controllers\StudentShiftController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FeeCategoryController;
 use App\Http\Controllers\FeeCategoryAmountController;
 use App\Http\Controllers\ExamTypeController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DesignationController;
-
-
-
-
-
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\GoverningBodyController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StudentScholarshipController;
+use App\Http\Controllers\StudentWeaverController;
+use App\Http\Controllers\TeacherController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -81,6 +84,22 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('subject', SubjectController::class);
 	Route::resource('designation', DesignationController::class);
 	Route::resource('assignSubject', AssignSubjectController::class);
+
+	Route::resource('student', StudentController::class);
+	Route::resource('assignStudent', AssignStudentController::class);
+	Route::resource('scholarship', StudentScholarshipController::class);
+	Route::resource('waiver', StudentWeaverController::class);
+
+
+
+	Route::resource('teacher', TeacherController::class);
+	Route::resource('employee', EmployeeController::class);
+	Route::resource('staff', StaffController::class);
+	Route::resource('governingBody', GoverningBodyController::class);
+
+
+
+
 
 
 
