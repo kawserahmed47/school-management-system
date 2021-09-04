@@ -36,6 +36,8 @@ class CreateStudentsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
 
+
+            $table->enum('religion', ['islam', 'hindu', 'catholic', 'other']);
             $table->enum('gender', ['male', 'female', 'other']);
             $table->string('dob')->nullable();
             $table->string('birth_certificate')->nullable()->unique();  

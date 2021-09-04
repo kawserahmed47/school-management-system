@@ -13,12 +13,20 @@ use App\Http\Controllers\ExamTypeController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeSalaryController;
 use App\Http\Controllers\GoverningBodyController;
+use App\Http\Controllers\MarkSheetController;
+use App\Http\Controllers\OtherCostController;
+use App\Http\Controllers\ResultSheetController;
+use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StaffSalaryController;
+use App\Http\Controllers\StudentFeeController;
+use App\Http\Controllers\StudentMarkController;
 use App\Http\Controllers\StudentScholarshipController;
 use App\Http\Controllers\StudentWeaverController;
 use App\Http\Controllers\TeacherController;
-
+use App\Http\Controllers\TeacherSalaryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -96,6 +104,23 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('employee', EmployeeController::class);
 	Route::resource('staff', StaffController::class);
 	Route::resource('governingBody', GoverningBodyController::class);
+
+
+	Route::resource('mark', StudentMarkController::class);
+	Route::resource('studentFee', StudentFeeController::class);
+
+	Route::resource('revenue', RevenueController::class);
+	Route::resource('otherCost', OtherCostController::class);
+	Route::resource('staffSalary', StaffSalaryController::class);
+	Route::resource('employeeSalary', EmployeeSalaryController::class);
+	Route::resource('teacherSalary', TeacherSalaryController::class);
+
+	Route::post('/markSheet', [MarkSheetController::class, 'index'])->name('markSheet.index');
+	Route::get('/markSheet/generate', [MarkSheetController::class, 'create'])->name('markSheet.create');
+
+	Route::post('/resultSheet', [ResultSheetController::class, 'index'])->name('resultSheet.index');
+	Route::get('/resultSheet/generate', [ResultSheetController::class, 'create'])->name('resultSheet.create');
+
 
 
 

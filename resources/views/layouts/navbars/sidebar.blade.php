@@ -181,12 +181,143 @@
       </li>
 
 
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
+      <li class="nav-item {{ ($activePage == 'teacherRegistration') ? ' active' : '' }}">
+        
+        
+        <a class="nav-link" data-toggle="collapse" href="#manageTeacher" aria-expanded="{{ ($activePage == 'teacherRegistration'  ) ? 'true' : 'false' }}">
+          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
+          <p>{{ __('Manage Teacher') }}
+            <b class="caret"></b>
+          </p>
         </a>
+
+        <div class="collapse {{ ($activePage == 'teacherRegistration'  ) ? 'show' : '' }}" id="manageTeacher">
+          <ul class="nav">
+
+            <li class="nav-item{{ $activePage == 'teacherRegistration' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('teacher.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Teacher Registration') }} </span>
+              </a>
+            </li>
+
+      
+
+          </ul>
+        </div>
+
+
       </li>
+
+
+      <li class="nav-item {{ ($activePage == 'mark'  || $activePage == 'markSheet' || $activePage == 'resultSheet' ) ? ' active' : '' }}">
+        
+        
+        <a class="nav-link" data-toggle="collapse" href="#marksManagement" aria-expanded="{{ ($activePage == 'mark' || $activePage == 'markSheet' || $activePage == 'resultSheet'  ) ? 'true' : 'false' }}">
+          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
+          <p>{{ __('Marks Management') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse {{ ($activePage == 'mark'  || $activePage == 'markSheet' || $activePage == 'resultSheet' ) ? 'show' : '' }}" id="marksManagement">
+          <ul class="nav">
+
+            <li class="nav-item{{ $activePage == 'mark' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('mark.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Marks Entry') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'markSheet' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('markSheet.create') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Marks Sheet') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'resultSheet' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('resultSheet.create') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Result Sheet') }} </span>
+              </a>
+            </li>
+
+      
+
+          </ul>
+        </div>
+
+
+      </li>
+
+
+      <li class="nav-item {{ ($activePage == 'account' || $activePage == 'studentFee' || $activePage == 'revenue'  || $activePage == 'otherCost'  || $activePage == 'staffSalary'  || $activePage == 'employeeSalary'  || $activePage == 'teacherSalary' ) ? ' active' : '' }}">
+        
+        
+        <a class="nav-link" data-toggle="collapse" href="#accountsManagement" aria-expanded="{{ ($activePage == 'account' || $activePage == 'studentFee'  ) ? 'true' : 'false' }}">
+          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
+          <p>{{ __('Account Management') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse {{ ($activePage == 'account' || $activePage == 'studentFee' || $activePage == 'revenue'  || $activePage == 'otherCost'  || $activePage == 'staffSalary'  || $activePage == 'employeeSalary'  || $activePage == 'teacherSalary' ) ? 'show' : '' }}" id="accountsManagement">
+          <ul class="nav">
+
+            <li class="nav-item{{ $activePage == 'studentFee' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('studentFee.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Student Fees') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'teacherSalary' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('teacherSalary.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Teacher Salary') }} </span>
+              </a>
+            </li>
+
+            {{-- <li class="nav-item{{ $activePage == 'employeeSalary' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('employeeSalary.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Employee Salary') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'staffSalary' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('staffSalary.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Staff Salary') }} </span>
+              </a>
+            </li> --}}
+
+            <li class="nav-item{{ $activePage == 'otherCost' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('otherCost.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Other Cost') }} </span>
+              </a>
+            </li>
+
+            {{-- <li class="nav-item{{ $activePage == 'revenue' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('revenue.index') }}">
+                <span class="sidebar-mini"> UP </span>
+                <span class="sidebar-normal">{{ __('Revinue Generate') }} </span>
+              </a>
+            </li> --}}
+
+          </ul>
+        </div>
+
+
+      </li>
+
+
+
+ 
+
 
 
 

@@ -38,8 +38,11 @@ class CreateTeachersTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
 
+            $table->enum('religion', ['islam', 'hindu', 'catholic', 'other']);
             $table->enum('gender', ['male', 'female', 'other']);
             $table->enum('relationship_status', ['single','in_a_relationship', 'engaged', 'separated', 'married', 'divorced', 'other'])->default('other');
+
+            $table->string('join_date')->nullable();
 
             $table->string('dob')->nullable();
             $table->string('birth_certificate')->nullable()->unique();  

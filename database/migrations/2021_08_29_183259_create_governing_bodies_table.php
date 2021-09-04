@@ -36,7 +36,10 @@ class CreateGoverningBodiesTable extends Migration
             $table->string('qualification')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
+            
+            $table->string('join_date')->nullable();
 
+            $table->enum('religion', ['islam', 'hindu', 'catholic', 'other']);
             $table->enum('gender', ['male', 'female', 'other']);
             $table->enum('relationship_status', ['single','in_a_relationship', 'engaged', 'separated', 'married', 'divorced', 'other'])->default('other');
 
